@@ -1,11 +1,14 @@
 {
   "name": "inferno_todos",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "inferno": "^3.8.2",
     "inferno-component": "^3.8.2",
-    "inferno-scripts": "4.2.0"
+    "inferno-router": "^3.8.2",
+    "inferno-scripts": "4.2.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "inferno-scripts start",

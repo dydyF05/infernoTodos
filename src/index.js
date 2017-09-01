@@ -1,5 +1,26 @@
 import { render } from 'inferno';
-import App from './js/App';
-import './index.css';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { Router, Route, IndexRoute } from 'inferno-router';
+import { Provider } from 'inferno-redux'
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware } from 'redux'
+import { Main } from './js/reducers/Main.reducer'
+import App from './js/App'
+import './css/index.css'
 
-render(<App />, document.getElementById('app'));
+const store = createStore(
+  Main,
+  applyMiddleware(thunk)
+)
+store.subscribe(() => {console.info(store.getState())})
+
+render(
+  <Provider store={store}>
+    <Router history={ createBrowserHistory() }>
+      <Route component={ App }>
+        <IndexRoute component={ App }/>
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('app')
+)
