@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "inferno": "^3.8.2",
     "inferno-component": "^3.8.2",
     "inferno-router": "^3.8.2",
