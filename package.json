@@ -6,6 +6,7 @@
     "bootstrap": "^3.3.7",
     "inferno": "^3.8.2",
     "inferno-component": "^3.8.2",
+    "inferno-redux": "^3.8.2",
     "inferno-router": "^3.8.2",
     "inferno-scripts": "4.2.0",
     "redux": "^3.7.2",
