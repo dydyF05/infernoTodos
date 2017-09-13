@@ -1,7 +1,11 @@
-import { render } from 'inferno';
-import App from './App';
+import { render } from 'inferno'
+import InfernoTestUtils from 'inferno-test-utils'
+import App from './App'
+
+const { findAllInVNodeTree } = InfernoTestUtils
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  render(<App />, div);
+  const vNodeTree = ( <App /> )
+  const predicate = (vNode) => vNode.type === App
+  const result = findAllInVNodeTree(vNodeTree, predicate);
 });
