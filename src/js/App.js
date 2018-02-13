@@ -5,8 +5,6 @@ import Logo from '../logo'
 import '../css/App.css'
 import TodosList from './container/todosList.container.js'
 
-
-
 class App extends Component {
     render() {
         return (

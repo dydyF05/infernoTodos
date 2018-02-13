@@ -6,6 +6,6 @@ export const initialState = {
     todos: initialTodosState
 }
 
-export const Main = combineReducers({
+export default combineReducers({
     todos
 })

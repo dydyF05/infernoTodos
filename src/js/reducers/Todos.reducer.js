@@ -24,7 +24,7 @@ export const initialState = {
     current_filter: 'all'
 }
 
-const todos = (state = initialState, action) => {
+const todos = (state = initialState, action = {}) => {
     switch (action.type) {
     case types.ADD_NEW_TODO:
         return {

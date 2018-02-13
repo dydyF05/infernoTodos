@@ -1,6 +1,5 @@
 /* eslint-env jasmine:true */
 import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
 import { Provider } from 'inferno-redux'
 import { render } from 'inferno'
 import InfernoTestUtils from 'inferno-test-utils'
@@ -8,8 +7,7 @@ import App from './App'
 import { initialState } from './reducers/Main.reducer'
 
 const { scryRenderedVNodesWithType } = InfernoTestUtils
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+const mockStore = configureMockStore()
 
 describe('App.js file', () => {
     let store
