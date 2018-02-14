@@ -1,20 +1,23 @@
 language: node_js
 node_js:
-- '8'
+  - '8'
 before_install:
-- sudo apt-get -qq update
-- sudo apt-get install -y libxml2-dev
-- npm install -g eslint
-- npm install --save-dev eslint-plugin-jasmine -g
-- npm install --save-dev babel-eslint -g
-- npm install --save-dev eslint-plugin-inferno -g
-- npm install -g codecov
-- npm install -g snyk
-- snyk auth
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libxml2-dev
+  - npm install -g eslint
+  - npm install --save-dev eslint-plugin-jasmine -g
+  - npm install --save-dev babel-eslint -g
+  - npm install --save-dev eslint-plugin-inferno -g
+  - npm install -g codecov
+  - npm install -g snyk
+before_script:
+  - snyk auth $SNYK_TOKEN
+  - snyk test
 script:
-- npm run test -- --coverage && codecov
-- npm run eslint
-- snyk test
+  - npm run test -- --coverage && codecov
+  - npm run eslint
+after_script:
+  - snyk test
 deploy:
   provider: heroku
   api_key:
@@ -23,7 +26,7 @@ deploy:
   on:
     repo: dydyFos/infernoTodos
 after_success:
-- snyk monitor
+  - snyk monitor
 env:
   snyk:
     secure: DO8MuoJkCX03QNX92uB3/kllCncVWJDyk9gRauzt8r2hydSIwHhcchahJwOs9JBVh0Ha4V2yT8UnIc6+BXTqlMP0EAdIYQq9uq7arQ7US1h3DnNntOMLUSH2cshtMgEMumWZzJYR242fLvrJfU2F8zCVaeW5W0QcibdWs8LL1bmWlZxEVy4VfyvNJbV1twH3SZWJ0+J2SRh0g7fPg+A8VcClJ79oAYmB5WAVqPAM3XZQC4Cy/XL25Y8fkTJtAcVHVeB6uSpko9uqLfUC9lJmqSneJG8pRhJoxV79JI/REBCj3zx/e5dK5LncM0cFZUdfr/b1sZ6sneI1+91m0P66Ek6ebgLuCt51TbYK6mp2AJa3AUXYZtpj0HI/CT26F+R111rZjrQVQzyzR5j5aoAQXawS8oBeBA6Tb18POYTAtt0TvayH2Jv8Zk6hh2pYXRku77NbNxr7BSmBi22eWCkDBPg+E5CVTLSS/DMCz+DLb+hjtrPupjSOBX1AJnNVTitFAccStC+y5SaXzBCKlFI2kSod5vCBkTXPQX671dfq2UROSmXh8AsPLHoEEUlUebBzl6bSEEAv5a2OprB2TaL0Nt7EnkOzdqU0D+3eviqtwT/OEVS8M/HZfBUp/TOdZuabzCp/9sLQnwW7hwLLZQImpxPX7IGPTB0Vt6MqzQ6yuPU=
