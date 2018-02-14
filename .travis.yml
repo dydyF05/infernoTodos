@@ -1,7 +1,21 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev
-  - npm install -g eslint
+- sudo apt-get -qq update
+- sudo apt-get install -y libxml2-dev
+- npm install -g eslint
+- npm install --save-dev eslint-plugin-jasmine -g
+- npm install --save-dev babel-eslint -g
+- npm install --save-dev eslint-plugin-inferno -g
+- npm install
+script:
+  - npm test
+  - eslint --debug .
+deploy:
+  provider: heroku
+  api_key:
+    secure: rZMRLPoHUE46p4uqnHYE8Skh+D43RJrG88fbQD03GdRxuNCa50zBLR+PP99pHLhRdUkXfGiTaBkFHsu+up8pBQDcysY/RY4+B+V0pgTb+9qE8iHnmVvBADqhTzSUKjtoXvdGWIoaqBVsfnTQN9q9C2briPAToqJKjDybwn5GI7pmyWlWOv7X3rSyNF/ls9EbxrO1xLWNm94rPZVbbkxYvKlRvzsUZSNpexoRmQiVSxoos0sVV8/Aj6VZtlZzF3b99VoXD/l3FIrHO83F6izGf8Oh4vN8XbgV6g4mY0u639cSqtR3Osdd+ENppCKHaeKbNCfMjzIW2CHt3rvUSR2RkH9CLdESxt2t/jQDDcDazsM6+3FEw1vDAgvP/TAqt6oYtRDgfMcGr7eGYdQL1ZfLwU49R2dWp1x28z1O9O1bXKLaXgouBpcEpacfPfK4HBIz+3H/w2NYXK4z2WypUeHIfnTmD4rBz7cN8Nywz9sd1cbcTnDGkyU1UewIZLui3lbd8X6nHz7W0db/1S0FPlxvonr9TDr9juGsloh0Kfr9l1TO8rdskrbD+DupAKn2Ivip6GdvyOg38edoswB19t7xniiee1sGMd6GE/X81fo33EXGVaf7prqLTmD+Y9v9GL24zO/NbhbqIVe5kq+0d8HAwoOQljYdxM52EYOSxFoaDs8=
+  app: infernoTodos
+  on:
+    repo: dydyFos/infernoTodos

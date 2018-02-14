@@ -1,8 +1,8 @@
 import { connect } from 'inferno-redux'
 import {
-  toggle_todo
+    toggle_todo
 } from '../actions/Todos.action'
-import TodoComponent from "../ui/Todo";
+import TodoComponent from '../ui/Todo';
 
 
 const mapStateToProps = (state) => {
