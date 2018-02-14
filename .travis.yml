@@ -5,6 +5,13 @@ before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y libxml2-dev
 - npm install -g eslint
+- npm install --save-dev eslint-plugin-jasmine -g
+- npm install --save-dev babel-eslint -g
+- npm install --save-dev eslint-plugin-inferno -g
+- npm install
+script:
+  - npm test
+  - eslint --debug .
 deploy:
   provider: heroku
   api_key:
