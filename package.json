@@ -4,14 +4,14 @@
   "private": false,
   "homepage": "https://dydyfos.github.io/infernoTodos",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0",
     "gh-pages": "^1.1.0",
     "history": "^4.7.2",
     "inferno": "^3.8.2",
     "inferno-component": "^3.8.2",
     "inferno-redux": "^3.8.2",
     "inferno-router": "^3.8.2",
-    "inferno-scripts": "4.2.0",
+    "inferno-scripts": "^5.0.0",
     "redux": "^3.7.2"
   },
   "scripts": {
