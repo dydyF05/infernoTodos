@@ -16,7 +16,8 @@
     "start": "inferno-scripts start",
     "build": "inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
-    "eject": "inferno-scripts eject"
+    "eject": "inferno-scripts eject",
+    "eslint": "eslint . --debug --ignore-path .gitignore"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
