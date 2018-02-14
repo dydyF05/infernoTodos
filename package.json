@@ -2,8 +2,10 @@
   "name": "inferno_todos",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://dydyfos.github.io/infernoTodos",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "gh-pages": "^1.1.0",
     "history": "^4.7.2",
     "inferno": "^3.8.2",
     "inferno-component": "^3.8.2",
@@ -13,6 +15,8 @@
     "redux": "^3.7.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "inferno-scripts start",
     "build": "inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
