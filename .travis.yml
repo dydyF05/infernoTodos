@@ -9,9 +9,11 @@ before_install:
 - npm install --save-dev babel-eslint -g
 - npm install --save-dev eslint-plugin-inferno -g
 - npm install -g codecov
+- npm install -g snyk
 script:
   - npm run test -- --coverage && codecov
   - npm run eslint
+  - snyk test
 deploy:
   provider: heroku
   api_key:
