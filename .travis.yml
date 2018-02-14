@@ -11,9 +11,9 @@ before_install:
 - npm install -g codecov
 - npm install -g snyk
 script:
-  - npm run test -- --coverage && codecov
-  - npm run eslint
-  - snyk test
+- npm run test -- --coverage && codecov
+- npm run eslint
+- snyk test
 deploy:
   provider: heroku
   api_key:
@@ -21,3 +21,8 @@ deploy:
   app: infernoTodos
   on:
     repo: dydyFos/infernoTodos
+after_success:
+- snyk monitor
+env:
+  snyk:
+    secure: i503HPHqc8kQPmxJcP+vk0HHUPzrohHL1ALx+qa4YHkSVWND4UP66iOEPWO8wW+Nqf/qzEA8oMHOMqbZDeRG/31F1fb8bazLLJSuFMnsmlkaw7OKyGKOw9Kw7JGzyxAP7NFCZNoULQU6/zmE65Mo89uRC1CGCa4ykFnhv3S6Jl/zDMUGPwjWEA5jd7MDaYMEgnj9DnM0ZWqAZcfzm+S7U1UGA2NFO50MwvTQQdPJwj6zhrrsNpGw12XYCIXXoqFJWiUK37QvEpJwmK6tlQorGhJMXA7Xth5aJksoGYzDwzfvexzSap1lpi/WpU0QF6pxsgCio0gLnst369w1rFt/aow5i5JGXKwGF2XaDGqyKwH722v41Enjg7YujDCwS/B/ZTxHjOBoXWrAypifMRGeS+R3dpl0gLXN9Zc5y0+Rqf5/n5vQLEkx6IwLc/e9pJYGV9WSs9fJotQ4fFucUdWo867ayUvr/wYcgwt4ULfDaLVWhjutqlhQMhJuT9N7vjuj2cYNsMoi5JjDaRZowLj9MZfwargEvO142O0KhVt4EOm6buqw+JZXh21K4P5Uqkfe8Z5ttsh3wjBvSrYiniwgD6ljLA+f5YSmVT7oQtA3+YHLbcX9F7SKoYZEmjXAUOJOhQiGCIisF/ymVoe/R5YH8n395qXAhK0cYwMEGSbACrE=
