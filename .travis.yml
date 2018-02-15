@@ -26,6 +26,15 @@ deploy:
   on:
     branch: master
     repo: dydyFos/infernoTodos
+    run:
+      - "npm build"
+      - "rm .eslintrc.js"
+      - "rm .gitignore"
+      - "rm .snyk"
+      - "rm .travis.yml"
+      - "rm README.md"
+      - "mv ./build/index.html ."
+      - "mv ./build/static ."
 after_success:
   # - snyk monitor
 # env:
