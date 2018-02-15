@@ -35,6 +35,13 @@ deploy:
       - "rm README.md"
       - "mv ./build/index.html ."
       - "mv ./build/static ."
+      - "rm -rf ./public"
+      - "rm -rf ./src"
+      - "rm -rf ./fixtures"
+      - "rm -rf ./build"
+      - "rm -rf ./node_modules"
+      - "rm -rf ./coverage"
+      - "rm -rf ./git"
 after_success:
   # - snyk monitor
 # env:
