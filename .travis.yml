@@ -43,7 +43,7 @@ deploy:
       - "rm -rf ./coverage"
       - "rm -rf ./git"
 after_success:
-  - "git clone https://github.com/dydyFos/infernoTodos.git web -c username='travis' -c password='$GITHUB_TOKEN'"
+  - "git clone https://travis:$GITHUB_TOKEN@github.com/username/repository.git web"
   - "cd web"
   - "npm run deploy"
 # env:
