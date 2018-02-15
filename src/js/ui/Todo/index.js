@@ -4,13 +4,13 @@ import './todo.css';
 class TodosListComponent extends Component {
     renderDoneTodo(todo) {
         return (
-            <li className="list-group-item">
+            <li className="list-group-item d-flex justify-content-between align-items-center">
                 {todo.name}
                 <button
                     onClick={() => this.props.toggle_todo(todo, 'todo')}
                     class="btn btn-xs btn-default pull-right"
                 >
-                    <span className="glyphicon glyphicon-remove" />
+                    <i class="far fa-minus-square"></i>
                 </button>
             </li>
         );
@@ -18,13 +18,13 @@ class TodosListComponent extends Component {
 
     renderUnfinishedTodo(todo) {
         return (
-            <li className="list-group-item disabled">
+            <li className="list-group-item d-flex justify-content-between align-items-center disabled">
                 {todo.name}
                 <button
                     onClick={() => this.props.toggle_todo(todo, 'done')}
                     class="btn btn-xs btn-default pull-right"
                 >
-                    <span className="glyphicon glyphicon-ok" />
+                    <i class="far fa-plus-square"></i>
                 </button>
             </li>
         );

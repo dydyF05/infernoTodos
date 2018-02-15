@@ -4,7 +4,7 @@ import './todosList.css'
 
 class TodosListComponent extends Component {
 
-  generateSelectedBtnClass = (btn_filter_name) => ( btn_filter_name === this.props.todos.current_filter ) ? 'btn btn-primary' : 'btn btn-default'
+  generateSelectedBtnClass = (btn_filter_name) => ( btn_filter_name === this.props.todos.current_filter ) ? 'btn btn-info' : 'btn btn-light'
 
   renderTodos() {
       const {current_filter} = this.props.todos
@@ -20,7 +20,7 @@ class TodosListComponent extends Component {
 
   renderTodosFilters() {
       return (
-          <div className="btn-group" role="toolbar" aria-label="Button group with nested dropdown">
+          <div className="row btn-group" role="group" aria-label="Choose your filter">
               <button type="button" className={this.generateSelectedBtnClass('all')} onClick={()=>{this.props.change_filter('all')}}>all</button>
               <button type="button" className={this.generateSelectedBtnClass('done')} onClick={()=>{this.props.change_filter('done')}}>done</button>
               <button type="button" className={this.generateSelectedBtnClass('todo')} onClick={()=>{this.props.change_filter('todo')}}>todo</button>
@@ -30,11 +30,17 @@ class TodosListComponent extends Component {
 
   render() {
       return (
-          <div className="row">
-              <h3 className="text text-primary">Todos List</h3>
-              {this.renderTodosFilters()}
+          <div className="container">
+              <div className="row">
+                  <h3 className="col text text-info">Todos List</h3>
+              </div>
+              <div className="container">
+                  {this.renderTodosFilters()}
+              </div>
               <hr/>
-              {this.renderTodos()}
+              <div className="container">
+                  {this.renderTodos()}
+              </div>
           </div>
       );
   }

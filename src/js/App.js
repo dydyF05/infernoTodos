@@ -3,6 +3,7 @@ import Component from 'inferno-component'
 import '../registerServiceWorker'
 import Logo from '../logo'
 import '../css/App.css'
+import '../css/font-awesome/css/fontawesome-all.min.css'
 import TodosList from './container/todosList.container.js'
 
 class App extends Component {
