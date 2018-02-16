@@ -1,23 +1,17 @@
 language: node_js
 node_js:
-  - '8'
+- '8'
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libxml2-dev
-  - npm install -g eslint
-  - npm install --save-dev eslint-plugin-jasmine -g
-  - npm install --save-dev babel-eslint -g
-  - npm install --save-dev eslint-plugin-inferno -g
-  - npm install -g codecov
-  # - npm install -g snyk
-# before_script:
-#   - snyk auth $SNYK_TOKEN
-#   - snyk test
+- sudo apt-get -qq update
+- sudo apt-get install -y libxml2-dev
+- npm install -g eslint
+- npm install --save-dev eslint-plugin-jasmine -g
+- npm install --save-dev babel-eslint -g
+- npm install --save-dev eslint-plugin-inferno -g
+- npm install -g codecov
 script:
-  - npm run test -- --coverage && codecov
-  - npm run eslint
-# after_script:
-#   - snyk test
+- npm run test -- --coverage && codecov
+- npm run eslint
 deploy:
   provider: heroku
   api_key:
@@ -27,26 +21,31 @@ deploy:
     branch: master
     repo: dydyFos/infernoTodos
     run:
-      - "npm build"
-      - "rm .eslintrc.js"
-      - "rm .gitignore"
-      - "rm .snyk"
-      - "rm .travis.yml"
-      - "rm README.md"
-      - "mv ./build/index.html ."
-      - "mv ./build/static ."
-      - "rm -rf ./public"
-      - "rm -rf ./src"
-      - "rm -rf ./fixtures"
-      - "rm -rf ./build"
-      - "rm -rf ./node_modules"
-      - "rm -rf ./coverage"
-      - "rm -rf ./git"
+    - npm build
+    - rm .eslintrc.js
+    - rm .gitignore
+    - rm .snyk
+    - rm .travis.yml
+    - rm README.md
+    - mv ./build/index.html .
+    - mv ./build/static .
+    - rm -rf ./public
+    - rm -rf ./src
+    - rm -rf ./fixtures
+    - rm -rf ./build
+    - rm -rf ./node_modules
+    - rm -rf ./coverage
+    - rm -rf ./git
 after_success:
-  - "git clone https://travis:$GITHUB_TOKEN@github.com/dydyFos/infernoTodos.git web"
-  - "cd web"
-  - "npm install"
-  - "npm run deploy"
-# env:
-#   snyk:
-#     secure: DO8MuoJkCX03QNX92uB3/kllCncVWJDyk9gRauzt8r2hydSIwHhcchahJwOs9JBVh0Ha4V2yT8UnIc6+BXTqlMP0EAdIYQq9uq7arQ7US1h3DnNntOMLUSH2cshtMgEMumWZzJYR242fLvrJfU2F8zCVaeW5W0QcibdWs8LL1bmWlZxEVy4VfyvNJbV1twH3SZWJ0+J2SRh0g7fPg+A8VcClJ79oAYmB5WAVqPAM3XZQC4Cy/XL25Y8fkTJtAcVHVeB6uSpko9uqLfUC9lJmqSneJG8pRhJoxV79JI/REBCj3zx/e5dK5LncM0cFZUdfr/b1sZ6sneI1+91m0P66Ek6ebgLuCt51TbYK6mp2AJa3AUXYZtpj0HI/CT26F+R111rZjrQVQzyzR5j5aoAQXawS8oBeBA6Tb18POYTAtt0TvayH2Jv8Zk6hh2pYXRku77NbNxr7BSmBi22eWCkDBPg+E5CVTLSS/DMCz+DLb+hjtrPupjSOBX1AJnNVTitFAccStC+y5SaXzBCKlFI2kSod5vCBkTXPQX671dfq2UROSmXh8AsPLHoEEUlUebBzl6bSEEAv5a2OprB2TaL0Nt7EnkOzdqU0D+3eviqtwT/OEVS8M/HZfBUp/TOdZuabzCp/9sLQnwW7hwLLZQImpxPX7IGPTB0Vt6MqzQ6yuPU=
+- git clone https://travis:$GITHUB_TOKEN@github.com/dydyFos/infernoTodos.git web
+- cd web
+- npm install
+- npm run deploy
+notifications:
+  slack:
+    secure: WtI9o+J00lRyYGNx2w4yInYwJoWQvtpE1AS2LuMSC5z7hkVNtyI6XXvgyLxESVzFftHXLNMpbWaPAGld3+vyiYHLDWzuQQTP43aLrQuIP+oKcCMAPwuDe9fQEBF6NHT5gypAi0GjDHUWHm3rboD90p5IwFUuGu8z3NGsAT6f8ygqBI3EIRUINO+U9SiWIdkkRJTkn54TEXjx2rJYJSbDzKhRGzjEZj1qL+WttThPGK+1iqth/S+ACF+p8/b5uVmChstSNhgkTvsDWKgui/i/osxHjBHzMYtxNqvxI8UsSDLDBHN7ObaI0QfKIJaQMuFgiyMTqm1FoGIHpa8pDz70DK7IGsuUIU3k8230ixSH4WiVvVpmkOhVCYsTGSEWwbphU1Dx55j5vS9t0tRpl2GtzKkyumGAfNriEh1JtzyEbktOnqEjVKbDfwHwMRtBGmCGMsK4KCTfA6AwP0IK6KFBn+UBrTh633KrSLjp0LtDDnt5ol5wHpxf5/4zw48OC0o1wDYJjuf+Q06tLYy9nzKbvVTCbg8Y/49gJw15l7r8XWm7UsgUVLsDU7ei9VNYwwBbihczTKgGbfkZjfFpPR9cJgcL/YTgahuqaN6hsTOkk02W5CXZKh/WX9ZKeiuCKhKt10hYc6wOu6S/sCPjKI8NQYXc7wY3qzW/QmCzKOye5OY=
+    enabled: true
+    on_success: true
+    on_fail: true
+    on_install: true
+    on_deploy: true
