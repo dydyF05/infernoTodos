@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.10.1
+version: v1.12.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:content-type-parser:20170905':
@@ -19,4 +19,14 @@ ignore:
     - inferno-scripts > jest > jest-cli > jest-runner > jest-config > jest-environment-jsdom > jsdom > request > hawk > hoek:
         reason: No reason
         expires: '2018-03-16T18:41:55.125Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hoek:20180212':
+    - inferno-scripts > fsevents > node-pre-gyp > hawk > hoek:
+        patched: '2018-06-19T01:57:53.965Z'
+    - inferno-scripts > fsevents > node-pre-gyp > hawk > boom > hoek:
+        patched: '2018-06-19T01:57:53.965Z'
+    - inferno-scripts > fsevents > node-pre-gyp > hawk > sntp > hoek:
+        patched: '2018-06-19T01:57:53.965Z'
+    - inferno-scripts > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        patched: '2018-06-19T01:57:53.965Z'
