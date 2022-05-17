@@ -11,7 +11,7 @@
     "inferno-component": "^3.8.2",
     "inferno-redux": "^3.8.2",
     "inferno-router": "^3.8.2",
-    "inferno-scripts": "^5.0.0",
+    "inferno-scripts": "^6.3.2",
     "redux": "^3.7.2"
   },
   "scripts": {
